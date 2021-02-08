@@ -1,0 +1,17 @@
+.about-container {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: rgb(180, 156, 49);
+}

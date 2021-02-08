@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(26, 26, 78);
+  font-family: "Lora", serif;
+  display: grid;
+  align-content: start;
+  color: white;
+  min-height: 80vh;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+header {
+  color: white;
+  background-image: linear-gradient(rgb(41, 34, 56), rgba(255, 255, 255, 0));
+  padding: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+header nav ul li {
+  margin-left: 30px;
+  color: rgb(221, 174, 22);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 80%;
+  justify-self: center;
+}
