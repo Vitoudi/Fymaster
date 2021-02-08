@@ -9,9 +9,6 @@ var client_id = "aef319ab18a843c594840428bd072237";
 var client_secret = "34f5341b59274470b5040917571160bb";
 var redirect_uri = "http://localhost:8888/callback/"; // Your redirect uri
 
-const mainController = require("./controllers/mainCotroller");
-const router = express.Router();
-
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -38,10 +35,6 @@ app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
 
-
-app.get('/page', (req, res) => {
-  res.send('page')
-})
 
 app.get('/login', function(req, res) {
 
