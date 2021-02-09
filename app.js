@@ -7,9 +7,9 @@ var cookieParser = require('cookie-parser');
 
 var client_id = "aef319ab18a843c594840428bd072237";
 var client_secret = "34f5341b59274470b5040917571160bb";
-var redirect_uri = "http://localhost:8888/callback/"; // Your redirect uri
+var redirect_uri = "https://vitoudi-vitoudi-fymaster.zeet.app/callback/"; // Your redirect uri
 
-// https://vitoudi-vitoudi-fymaster.zeet.app/callback/
+// 
 
 /**
  * Generates a random string containing numbers and letters
