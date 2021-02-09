@@ -47,7 +47,7 @@
       return `
           <div class="artist">
             <span class="position-number">${position || ""}</span>
-            <img class="image-in-container" src='${artist.images[0]}'>
+            <img class="image-in-container" src='${artist.images[1].url}'>
             <h3>${artist.name}</h3>
           </div>
           `;
@@ -112,7 +112,12 @@
 
       console.log(userInfo)
 
-      imageElement.setAttribute("src", userInfo.images.length ? userInfo.images[0].url : '../assets/user-default-image.png');
+      imageElement.setAttribute(
+        "src",
+        userInfo.images.length
+          ? userInfo.images[0].url
+          : "../assets/user-default-image.png"
+      );
       usernameElement.textContent = userInfo.display_name;
 
       //put in the DOMd
