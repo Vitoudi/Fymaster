@@ -47,7 +47,7 @@
       return `
           <div class="artist">
             <span class="position-number">${position || ""}</span>
-            <img class="image-in-container" src='${artist.images[1].url}'>
+            <img class="image-in-container" src='${artist.images[0]}'>
             <h3>${artist.name}</h3>
           </div>
           `;
@@ -92,9 +92,8 @@
     }
   }
 
+
   // manipulação da UI
-
-
   const uiManager = {
     metaData: getData("meta-data"),
     topArtistsData: getData("personalization", "artists"),
@@ -111,7 +110,9 @@
       const imageElement = document.createElement("img");
       const usernameElement = document.createElement("h2");
 
-      imageElement.setAttribute("src", userInfo.images[0].url);
+      console.log(userInfo)
+
+      imageElement.setAttribute("src", userInfo.images.length ? userInfo.images[0].url : '../assets/user-default-image.png');
       usernameElement.textContent = userInfo.display_name;
 
       //put in the DOMd
