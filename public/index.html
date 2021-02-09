@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Fymaster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
       #login, #loggedin {
@@ -13,7 +14,36 @@
         white-space: nowrap;
         width: 500px;
       }
+
+      body, .container {
+        min-height: 70vh;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      #login {
+        display: grid;
+        justify-content: center;
+        justify-self: center;
+      }
+
+      a {
+        justify-self: center;
+      }
     </style>
+    <link rel="stylesheet" href="/general.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
+      rel="stylesheet"
+    />
+    
   </head>
 
   <body>
@@ -31,33 +61,9 @@
       </div>
     </div>
 
-    <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
-      <div class="media">
-        <div class="pull-left">
-          <img class="media-object" width="150" src="{{images.0.url}}" />
-        </div>
-        <div class="media-body">
-          <dl class="dl-horizontal">
-            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-            <dt>Id</dt><dd>{{id}}</dd>
-            <dt>Email</dt><dd>{{email}}</dd>
-            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd>
-          </dl>
-        </div>
-      </div>
-    </script>
+    <script id="user-profile-template" type="text/x-handlebars-template"></script>
 
-    <script id="oauth-template" type="text/x-handlebars-template">
-      <h2>oAuth info</h2>
-      <dl class="dl-horizontal">
-        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
-        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
-      </dl>
-    </script>
+    <script id="oauth-template" type="text/x-handlebars-template"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -93,7 +99,7 @@
             error = params.error;
 
         if (error) {
-          alert('There was an error during the authentication');
+          alert('Um erro ocorreu durante a autenticação');
         } else {
           if (access_token) {
             // render oauth info
@@ -120,20 +126,7 @@
               $('#loggedin').hide();
           }
 
-          document.getElementById('obtain-new-token').addEventListener('click', function() {
-            $.ajax({
-              url: '/refresh_token',
-              data: {
-                'refresh_token': refresh_token
-              }
-            }).done(function(data) {
-              access_token = data.access_token;
-              oauthPlaceholder.innerHTML = oauthTemplate({
-                access_token: access_token,
-                refresh_token: refresh_token
-              });
-            });
-          }, false);
+          
         }
       })();
     </script>
